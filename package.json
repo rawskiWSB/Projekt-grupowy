@@ -1,0 +1,26 @@
+{
+  "name": "projekt-grupowy",
+  "version": "1.0.0",
+  "description": "Zaliczenie przedmiotu \"Projekt zespołowy\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rawskiWSB/Projekt-grupowy.git"
+  },
+  "keywords": [
+    "projekt",
+    "zespołowy"
+  ],
+  "author": "Piotr Rawski, Mateusz Łyczek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rawskiWSB/Projekt-grupowy/issues"
+  },
+  "homepage": "https://github.com/rawskiWSB/Projekt-grupowy#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
