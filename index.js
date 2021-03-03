@@ -9,11 +9,23 @@ const app = express();
 const server = http.createServer(app);
 
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(express.static(path.join(__dirname,'./public')));
+//app.use(express.static(path.join(__dirname,'./public')));
+app.set('public', path.join(__dirname, 'public'));
+app.set('view engine', 'ejs');
 
+app.use("/static", express.static("public"));
 
-app.get('/',(req,res) => {
-    res.sendFile(path.join(__dirname,'./public/index.html'));
+// GET METHOD MAIN PAGE
+app.get("/", (req, res) => {
+    res.render("index.ejs");
+});
+
+app.get("/logowanie", (req, res) => {
+    res.render("logowanie.ejs");
+});
+
+app.get("/rejestracja", (req, res) => {
+    res.render("rejestracja.ejs");
 });
 
 
@@ -33,9 +45,9 @@ app.post('/register', async (req, res) => {
             users.push(newUser);
             console.log('User list', users);
 
-            res.send("<div align ='center'><h2>Rejestracja powiodła się</h2></div><br><br><div align='center'><a href='./logowanie.html'>logowanie</a></div><br><br><div align='center'><a href='./rejestracja.html'>Rejestracja nowego użytkowanika</a></div>");
+            res.send("<div align ='center'><h2>Rejestracja powiodła się</h2></div><br><br><div align='center'><a href='./logowanie'>logowanie</a></div><br><br><div align='center'><a href='./rejestracja'>Rejestracja nowego użytkowanika</a></div>");
         } else {
-            res.send("<div align ='center'><h2>Adres e-mail znajduje się już w bazie danych.<br/>Proszę podać inny adres</h2></div><br><br><div align='center'><a href='./rejestracja.html'>Ponowna rejestracja</a></div>");
+            res.send("<div align ='center'><h2>Adres e-mail znajduje się już w bazie danych.<br/>Proszę podać inny adres</h2></div><br><br><div align='center'><a href='./rejestracja'>Ponowna rejestracja</a></div>");
         }
     } catch{
         res.send("500 - błąd po stronie serwera");
@@ -55,7 +67,7 @@ app.post('/login', async (req, res) => {
                 let usrname = foundUser.username;
                 res.send(`<div align ='center'><h2>Logowanie powiodło się! </h2></div><br><br><br><div align ='center'><h3>Witaj ${usrname}</h3></div><br><br><div align='center'><a href='./logowanie.html'>Wyloguj</a></div>`);
             } else {
-                res.send("<div align ='center'><h2>Błędny e-mail lub hasło.</h2></div><br><br><div align ='center'><a href='./logowanie.html'>Zaloguj ponownie</a></div>");
+                res.send("<div align ='center'><h2>Błędny e-mail lub hasło.</h2></div><br><br><div align ='center'><a href='./logowanie'>Zaloguj ponownie</a></div>");
             }
         }
         else {
@@ -63,7 +75,7 @@ app.post('/login', async (req, res) => {
             let fakePass = `$2b$$10$ifgfgfgfgfgfgfggfgfgfggggfgfgfga`;
             await bcrypt.compare(req.body.password, fakePass);
 
-            res.send("<div align ='center'><h2>Błędny e-mail lub hasło.</h2></div><br><br><div align ='center'><a href='./logowanie.html'>Zaloguj ponownie</a></div>");
+            res.send("<div align ='center'><h2>Błędny e-mail lub hasło.</h2></div><br><br><div align ='center'><a href='./logowanie'>Zaloguj ponownie</a></div>");
         }
     } catch{
         res.send("500 - Wewnętrzny błąd serwera");
