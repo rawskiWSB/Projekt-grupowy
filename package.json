@@ -4,10 +4,10 @@
   "description": "Zaliczenie przedmiotu \"Projekt zespołowy\"",
   "main": "index.js",
   "scripts": {
-    "start": "node ./main.js",
-    "start:dev": "cross-env NODE_ENV=development node ./main.js",
-    "start:pro": "cross-env NODE_ENV=production node ./main.js",
-    "start:watch": "nodemon cross-env NODE_ENV=development ./main.js"
+//    "start": "node ./main.js",
+//    "start:dev": "cross-env NODE_ENV=development node ./main.js",
+//    "start:pro": "cross-env NODE_ENV=production node ./main.js",
+//    "start:watch": "nodemon cross-env NODE_ENV=development ./main.js"
   },
   "repository": {
     "type": "git",
