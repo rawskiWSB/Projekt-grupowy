@@ -11,8 +11,8 @@ const mongoose = require("mongoose");
 const usersDb = require("./models/users");
 const Parser = require('rss-parser')
 const mjml2html = require('mjml')
-const API_KEY = "c44288d84dcfff5f78eac9f5fd7cc410-a09d6718-d4f6cd3c";
-const DOMAIN = "sandboxf5b5751ca4f646159f24b26731e02dab.mailgun.org";
+// const API_KEY = "";
+// const DOMAIN = "";
 const mailgun = require('mailgun-js')({apiKey: API_KEY, domain: DOMAIN});
 
 const app = express();
