@@ -1,0 +1,20 @@
+{
+  "feedmail": {
+    "db": {
+      "url": "mongodb+srv://yoda:yoda@cluster@cluster0.g2qbi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+      "name": "dev",
+      "options": {
+        "useUnifiedTopology": true
+      }
+    },
+    "logger": {
+      "level": "debug",
+      "filename": "./backend.log"
+    },
+    "mailgun": {
+      "domain": "sandboxf5b5751ca4f646159f24b26731e02dab.mailgun.org",
+      "apiKey": "c44288d84dcfff5f78eac9f5fd7cc410-a09d6718-d4f6cd3c"
+    },
+    "port": 3000
+  }
+}

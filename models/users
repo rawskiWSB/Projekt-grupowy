@@ -1,0 +1,26 @@
+const mongoose = require('mongoose');
+
+const uSchema = new mongoose.Schema({
+    d: {
+        type: Date,
+        default: Date.now
+    },
+    username: {
+        type: String
+    },
+    email: {
+        type: String
+    },
+    password: {
+        type:String
+    },
+    rss: {
+        type:Object,
+    },
+    msg: {
+        type:String
+    }
+
+})
+
+module.exports = mongoose.model('users',uSchema);

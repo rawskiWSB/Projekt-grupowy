@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <%- include('./szablony/head') -%>
+</head>
+<body>
+<header>
+    <%- include('./szablony/header') -%>
+</header>
+<div align ='center'><h2>Logowanie powiodło się! </h2></div><br><br><br><div align ='center'><h3>Witaj <%= det.username %></h3></div><br><br>
+<form action="/us" method="POST">
+<div class="row">
+    <div class="col">
+        <div class="mb-3">
+
+            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput3" name="emailAdress" value = <%= det.email %>>
+            <input type="hidden" readonly="readonly" class="form-control" id="exampleFormControlInput1" name="email" value = <%= det.email %>>
+            <input type=datetime-local name="date" value = <%= new Date().toISOString().substr(0, 11) + new Date().toLocaleTimeString('en-GB').substr(0,5) %>>
+        </div>
+    </div>
+    <div class="col">
+        <div class="mb-3">
+            <label for="formGroupExampleInput2" class="form-label">Message</label>
+          <!--  <input type="text" class="form-control" id="formGroupExampleInput2" name="rss" placeholder="https://example.site/rss.xml">-->
+            <textarea id="exampleFormControlInput2" class="form-control" name="msg" rows="4" cols="50" placeholder="Write something"></textarea>
+        </div>
+    </div>
+</div>
+<div class="row">
+<div class="btn-group" role="group" aria-label="Basic mixed styles example">
+    <button type="submit" class="btn btn-primary" formaction="send" >Send Email</button>
+    <button type="button" class="btn btn-secondary" id="sender">Preview</button>
+    <button type="submit" class="btn btn-danger" formaction="rss">Add Message</button>
+</div>
+</div>
+</form>
+
+<div align='center'><a href='./logowanie'>Wyloguj</a></div>
+<footer>
+
+    <%- include('./szablony/footer') -%>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
