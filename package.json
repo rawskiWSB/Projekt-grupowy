@@ -9,7 +9,6 @@
     "start:pro": "cross-env NODE_ENV=production node ./main.js",
     "start:watch": "nodemon cross-env NODE_ENV=development ./main.js"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rawskiWSB/Projekt-grupowy.git"
@@ -40,6 +39,6 @@
     "rss-parser": "^3.12.0",
     "winston": "^3.3.3",
     "cross-env": "^7.0.3"
-
-  },
+  }
+}
 
