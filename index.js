@@ -11,8 +11,8 @@ const mongoose = require("mongoose");
 const usersDb = require("./models/users");
 const Parser = require('rss-parser')
 const mjml2html = require('mjml')
-const API_KEY = "";
-const DOMAIN = "";
+//const API_KEY = "";
+//const DOMAIN = "";
 const mailgun = require('mailgun-js')({apiKey: process.env.API_KEY, domain: process.env.DOMAIN});
 
 
@@ -29,7 +29,8 @@ app.use("/static", express.static("public"));
 //CONNECT TO DATABASE
 mongoose.set("useFindAndModify", false);
 
-mongoose.connect('mongodb+srv://yoda:yoda@cluster0.g2qbi.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', { useNewUrlParser: true }, () => {
+//ADD CONNECTION STRING
+mongoose.connect('', { useNewUrlParser: true }, () => {
     console.log("Polaczony z db!");
     app.listen(process.env.PORT || 3000, () => console.log("Dzialam na 3000!"));
 });
