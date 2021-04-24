@@ -11,9 +11,10 @@ const mongoose = require("mongoose");
 const usersDb = require("./models/users");
 const Parser = require('rss-parser')
 const mjml2html = require('mjml')
-// const API_KEY = "";
-// const DOMAIN = "";
+const API_KEY = "";
+const DOMAIN = "";
 const mailgun = require('mailgun-js')({apiKey: process.env.API_KEY, domain: process.env.DOMAIN});
+
 
 const app = express();
 const server = http.createServer(app);
@@ -196,7 +197,7 @@ function sender(mailAdress, msg, time) {
     });
 }
 
-
+module.exports = app;
 
 
 
